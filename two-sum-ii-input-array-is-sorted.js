@@ -18,6 +18,33 @@ const twoSumUsingHashMap = (numbers, target) => {
   return result;
 };
 
-const result = twoSumUsingHashMap([-1, 0], -1);
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+const twoSumUsingTwoPointers = (numbers, target) => {
+  let i = 0;
+  let j = numbers.length - 1;
 
-console.log(result);
+  while(i < j) {
+    let sum = numbers[i] + numbers[j]
+
+    if (sum === target) {
+      return [i + 1, j + 1]
+    }
+
+    if (sum >= target) {
+      j--;
+    } else {
+      i++;
+    }
+  }
+
+  return []
+};
+
+// const result = twoSumUsingHashMap([-1, 0], -1);
+// const result = twoSumUsingTwoPointers([-1, 0], -1);
+
+// console.log(result);
